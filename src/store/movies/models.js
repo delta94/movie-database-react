@@ -22,7 +22,7 @@ export class Movie {
             this.voteAverage = obj.vote_average;
             this.voteCount = obj.vote_count;
             this.overview = obj.overview;
-            this.posterImage = obj.poster_path ? `${config.image.moviePosterUrl}${obj.poster_path}` : null;
+            this.posterImage = obj.poster_path ? `${config.image.moviePosterUrl}${obj.poster_path}` : this.placeholderImage;
 
             if (Array.isArray(obj.genres)) {
                 this.genre = obj.genres.map(genre => genre.name).join(', ');
@@ -49,7 +49,7 @@ export class MovieCast {
     constructor(obj) {
         if (obj) {
             this.name = obj.name;
-            this.image = obj.profile_path ? `${config.image.movieCastUrl}${obj.profile_path}` : null;
+            this.image = obj.profile_path ? `${config.image.movieCastUrl}${obj.profile_path}` : this.placeholderImage;
         }
     }
 }
