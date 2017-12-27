@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import config from '../config'
+
 const HTTP = {
     GET: 'GET',
     POST: 'POST',
@@ -8,8 +10,8 @@ const HTTP = {
     DELETE: 'DELETE'
 }
 
-const URL = 'https://api.themoviedb.org/3'
-const API_KEY = '4be3aa587095fff2de95182763daa324'
+const URL = config.api.url
+const API_KEY = config.api.key
 
 const AUTH_TOKEN_STORAGE_KEY = 'authToken'
 

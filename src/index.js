@@ -9,7 +9,7 @@ import storeFactory from './store'
 
 import Home from './containers/Home'
 import MovieDetails from './containers/MovieDetails'
-import Header from './components/Header/Header'
+import Header from './components/Header'
 
 // import registerServiceWorker from './registerServiceWorker';
 

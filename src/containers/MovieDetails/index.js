@@ -20,33 +20,30 @@ class MovieDetails extends Component {
             return null;
         }
 
-        let image = movieDetail.poster_path ? `https://image.tmdb.org/t/p/w640/${movieDetail.poster_path}` : null
-        let imagePath = image ? <img src={image} alt="undefined poster" className="posterImg" /> : null
-
         return (
             <div>
                 <div className="moviePage">
                     <div className="poster">
-                        {imagePath}
+                        <img 
+                            src={movieDetail.posterImage}
+                            onError={
+                                (e) => e.target.src = movieDetail.placeholderImage
+                            }
+                            alt="undefined poster"
+                            className="posterImg" />
                     </div>
                     <section className="movieDetails">
                         <h2 className="sectionTitle">{movieDetail.title}</h2>
                         <ul className="detailsList">
-                            <li><span className="bold">Release date:</span> {movieDetail.release_date} </li>
-                            <li><span className="bold">Rating: </span> {movieDetail.vote_average} </li>
-                            <li><span className="bold">Vote count: </span> {movieDetail.vote_count} </li>
-                            <li>
-                                <span className="bold">Genres: </span>
-                                {
-                                    movieDetail.genres.map((genre, i) =>
-                                        genre.name + (i != movieDetail.genres.length - 1 ? ', ' : ''))
-                                }
-                            </li>
+                            <li><span className="bold">Release date:</span> {movieDetail.releaseDate} </li>
+                            <li><span className="bold">Rating: </span> {movieDetail.voteAverage} </li>
+                            <li><span className="bold">Vote count: </span> {movieDetail.voteCount} </li>
+                            <li><span className="bold">Genres: </span>{movieDetail.genre}</li>
                         </ul>
                         <p>{movieDetail.overview}</p>
                     </section>
                 </div>
-                <MovieCast cast={movieDetail.credits.cast} />
+                <MovieCast cast={movieDetail.cast} />
             </div>
         )
     }

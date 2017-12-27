@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import SearchBar from '../../components/SearchBar/SearchBar'
-import NewMovies from '../NewMovies/NewMovies'
-import SearchResults from '../SearchResults/SearchResults'
+import SearchBar from '../../components/SearchBar'
+import NewMovies from '../NewMovies'
+import SearchResults from '../SearchResults'
 
 import * as actions from '../../store/movies/actions'
 

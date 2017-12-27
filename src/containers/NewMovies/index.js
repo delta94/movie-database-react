@@ -1,4 +1,4 @@
-import Movie from '../../components/Movie/Movie'
+import Movie from '../../components/Movie'
 import './NewMovies.css'
 
 const NewMovies = ({ movies }) => {
@@ -11,7 +11,7 @@ const NewMovies = ({ movies }) => {
             <div className="newMovies">
                 {
                     movies && movies.length ?
-                        movies.map((movie, i) => <Movie key={i} movie={movie} />) :
+                        movies.map((movie, i) => <Movie key={i} movie={movie} />) : 
                         null
                 }
             </div>
