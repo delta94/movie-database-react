@@ -1,6 +1,6 @@
-import api from '../../api'
+import api from '../../api';
 
-import { Movie } from './models'
+import { Movie } from './models';
 
 const MovieService = {
     getFeatured() {
@@ -14,7 +14,7 @@ const MovieService = {
             'primary_release_date.lte': '2017-12-20'
         })
             .then(response => MovieService.handleResponse(response))
-            .catch(err => err)
+            .catch(err => err);
     },
 
     searchMovies(query) {
@@ -25,7 +25,7 @@ const MovieService = {
             'include_adult': 'false'
         })
             .then(response => MovieService.handleResponse(response))
-            .catch(err => err)
+            .catch(err => err);
     },
 
     getMovieDetails(movieId) {
@@ -34,7 +34,7 @@ const MovieService = {
             append_to_response: 'credits'
         })
             .then(result => result.data ? new Movie(result.data) : null)
-            .catch(err => err)
+            .catch(err => err);
     },
 
     handleResponse(response) {
@@ -48,6 +48,6 @@ const MovieService = {
 
         return movies;
     }
-}
+};
 
-export default MovieService
+export default MovieService;

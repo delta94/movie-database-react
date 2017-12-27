@@ -1,4 +1,4 @@
-import './Movie.css'
+import './Movie.css';
 
 const Movie = ({ movie }) => {
 
@@ -18,7 +18,7 @@ const Movie = ({ movie }) => {
                 <p>{movie.releaseDate}</p>
             </div>
         </a>
-    )
-}
+    );
+};
 
-export default Movie
+export default Movie;

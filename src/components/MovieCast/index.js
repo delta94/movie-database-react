@@ -19,6 +19,6 @@ const MovieCast = ({ cast }) =>
                     </figure>)
             }
         </div>
-    </div>
+    </div>;
 
-export default MovieCast
+export default MovieCast;

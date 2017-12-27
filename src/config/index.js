@@ -11,4 +11,4 @@ export default {
         placeholderUrl: 'http://www.euneighbours.eu/sites/default/files/2017-01/placeholder.png'
     }
     
-}
+};

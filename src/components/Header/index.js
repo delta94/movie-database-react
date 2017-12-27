@@ -1,5 +1,5 @@
-import logo from '../../images/logo.svg'
-import './Header.css'
+import logo from '../../images/logo.svg';
+import './Header.css';
 
 const Header = () =>
     <header>
@@ -10,6 +10,6 @@ const Header = () =>
             </h1>
         </a>
         <hr />
-    </header>
+    </header>;
 
-export default Header
+export default Header;

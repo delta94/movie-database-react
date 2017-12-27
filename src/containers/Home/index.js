@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import SearchBar from '../../components/SearchBar'
-import NewMovies from '../NewMovies'
-import SearchResults from '../SearchResults'
+import SearchBar from '../../components/SearchBar';
+import NewMovies from '../NewMovies';
+import SearchResults from '../SearchResults';
 
-import * as actions from '../../store/movies/actions'
+import * as actions from '../../store/movies/actions';
 
 class Home extends Component {
 
   constructor(props) {
     super(props);
-    props.getFeaturedMovies()
+    props.getFeaturedMovies();
   }
 
   renderMovies() {
     const hasSearchResults = this.props.searchResult.length;
     if (hasSearchResults) {
-      return <SearchResults searchResult={this.props.searchResult} />
+      return <SearchResults searchResult={this.props.searchResult} />;
     }
-    return <NewMovies movies={this.props.newMovies} />
+    return <NewMovies movies={this.props.newMovies} />;
   }
 
   render() {
@@ -36,9 +36,9 @@ const mapStateToProps = (state) => {
   return {
     newMovies: state.movies.featured,
     searchResult: state.movies.searchResult
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, {
   getFeaturedMovies: actions.getFeaturedMovies
-})(Home)
+})(Home);

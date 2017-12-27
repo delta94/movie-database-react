@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-import config from '../config'
+import config from '../config';
 
 const HTTP = {
     GET: 'GET',
@@ -8,16 +8,16 @@ const HTTP = {
     PUT: 'PUT',
     PATCH: 'PATCH',
     DELETE: 'DELETE'
-}
+};
 
-const URL = config.api.url
-const API_KEY = config.api.key
+const URL = config.api.url;
+const API_KEY = config.api.key;
 
-const AUTH_TOKEN_STORAGE_KEY = 'authToken'
+const AUTH_TOKEN_STORAGE_KEY = 'authToken';
 
 const ApiService = {
 
-    getUrl(path) { return `${URL}/${path}` },
+    getUrl(path) { return `${URL}/${path}`; },
 
     getToken() {
         const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
@@ -36,7 +36,7 @@ const ApiService = {
 
         if (options) {
             for (let [key, value] of options) {
-                headers.set(key, value)
+                headers.set(key, value);
             }
         }
 
@@ -48,13 +48,13 @@ const ApiService = {
         if (!options) {
             options = {
                 params: {}
-            }
+            };
         }
 
-        options.params.api_key = API_KEY
+        options.params.api_key = API_KEY;
 
-        let url = this.getUrl(path)
-        let headers = this.getHeaders(options.headers)
+        let url = this.getUrl(path);
+        let headers = this.getHeaders(options.headers);
         
 
         return axios({
@@ -63,7 +63,7 @@ const ApiService = {
             headers,
             data: options.data,
             params: options.params
-        })
+        });
     },
 
     /*
@@ -71,24 +71,24 @@ const ApiService = {
      */
 
     get(path, params, customHeaders) {
-        return this.request(HTTP.GET, path, { params, headers: customHeaders })
+        return this.request(HTTP.GET, path, { params, headers: customHeaders });
     },
 
     post(path, data, params, customHeaders) {
-        return this.request(HTTP.POST, path, { data, params, headers: customHeaders })
+        return this.request(HTTP.POST, path, { data, params, headers: customHeaders });
     },
 
     put(path, data, params, customHeaders) {
-        return this.request(HTTP.PUT, path, { data, params, headers: customHeaders })
+        return this.request(HTTP.PUT, path, { data, params, headers: customHeaders });
     },
 
     delete(path, params, customHeaders) {
-        return this.request(HTTP.GET, path, { params, headers: customHeaders })
+        return this.request(HTTP.GET, path, { params, headers: customHeaders });
     },
 
     patch (path, data, params, customHeaders) {
-        return this.request(HTTP.PUT, path, { data, params, headers: customHeaders })
+        return this.request(HTTP.PUT, path, { data, params, headers: customHeaders });
     }
-}
+};
 
-export default ApiService
+export default ApiService;

@@ -1,22 +1,20 @@
-import './index.css'
+import './index.css';
 
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import storeFactory from './store'
+import storeFactory from './store';
 
-import Home from './containers/Home'
-import MovieDetails from './containers/MovieDetails'
-import Header from './components/Header'
+import Home from './containers/Home';
+import MovieDetails from './containers/MovieDetails';
+import Header from './components/Header';
 
-// import registerServiceWorker from './registerServiceWorker';
+const store = storeFactory();
 
-const store = storeFactory()
-
-window.React = React
-window.store = store
+window.React = React;
+window.store = store;
 
 render(
     <Provider store={store}>
@@ -31,5 +29,4 @@ render(
         </div>
     </Provider>,
     document.getElementById('root')
-)
-// registerServiceWorker()
+);

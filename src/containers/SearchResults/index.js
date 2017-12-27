@@ -1,6 +1,6 @@
-import MovieSearchResult from '../../components/MovieSearchResult'
+import MovieSearchResult from '../../components/MovieSearchResult';
 
-import './SearchResults.css'
+import './SearchResults.css';
 
 const SearchResults = ({ searchResult }) => {
 
@@ -17,8 +17,8 @@ const SearchResults = ({ searchResult }) => {
             }
         </ul>
         </form>
-    )
-}
+    );
+};
 
-export default SearchResults
+export default SearchResults;
 

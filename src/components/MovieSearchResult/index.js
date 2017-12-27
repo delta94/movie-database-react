@@ -15,8 +15,8 @@ const MovieSearchResult = ({ movie }) => {
                 <p>{movie.releaseDate}</p>
             </div>
         </a>
-    )
+    );
 
-}
+};
 
-export default MovieSearchResult
+export default MovieSearchResult;

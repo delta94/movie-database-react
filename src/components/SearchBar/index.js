@@ -1,10 +1,10 @@
-import './SearchBar.css'
-import searchIcon from '../../images/search.svg'
+import './SearchBar.css';
+import searchIcon from '../../images/search.svg';
 
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import * as actions from '../../store/movies/actions'
+import * as actions from '../../store/movies/actions';
 
 class SearchBar extends Component {
 
@@ -16,12 +16,12 @@ class SearchBar extends Component {
     }
 
     submit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         if (this._searchInput.value && this._searchInput.value.length) {
-            this.props.searchMovie(this._searchInput.value)
+            this.props.searchMovie(this._searchInput.value);
         } else {
-            this.props.resetMovieSearch()
+            this.props.resetMovieSearch();
         }
     }
 
@@ -38,7 +38,7 @@ class SearchBar extends Component {
                     ref={input => this._searchInput = input}
                     required />
             </form>
-        )
+        );
     }
 }
 
@@ -46,4 +46,4 @@ class SearchBar extends Component {
 export default connect(null, {
     searchMovie: actions.searchMovie,
     resetMovieSearch: actions.resetMovieSearch
-})(SearchBar)
+})(SearchBar);

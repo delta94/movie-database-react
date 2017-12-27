@@ -1,8 +1,7 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
-import MovieService from './service'
-import * as MovieActions from './actions'
+import { call, put, takeEvery } from 'redux-saga/effects';
+import MovieService from './service';
+import * as MovieActions from './actions';
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchFeaturedMovies(action) {
    try {
       const movies = yield call(MovieService.getFeatured);
@@ -35,4 +34,4 @@ export const moviesSagas = [
     takeEvery(MovieActions.types.GET_FEATURED_MOVIES, fetchFeaturedMovies),
     takeEvery(MovieActions.types.SEARCH_MOVIE, fetchSearchMovie),
     takeEvery(MovieActions.types.GET_MOVIE_DETAILS, fetchMovieDetails)   
-]
+];

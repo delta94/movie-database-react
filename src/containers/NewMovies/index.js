@@ -1,5 +1,5 @@
-import Movie from '../../components/Movie'
-import './NewMovies.css'
+import Movie from '../../components/Movie';
+import './NewMovies.css';
 
 const NewMovies = ({ movies }) => {
 
@@ -16,7 +16,7 @@ const NewMovies = ({ movies }) => {
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default NewMovies
+export default NewMovies;

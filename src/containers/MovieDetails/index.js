@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import MovieCast from '../../components/MovieCast'
+import MovieCast from '../../components/MovieCast';
 
-import * as actions from '../../store/movies/actions'
+import * as actions from '../../store/movies/actions';
 
 class MovieDetails extends Component {
 
@@ -45,7 +45,7 @@ class MovieDetails extends Component {
                 </div>
                 <MovieCast cast={movieDetail.cast} />
             </div>
-        )
+        );
     }
 }
 
@@ -53,9 +53,9 @@ class MovieDetails extends Component {
 const mapStateToProps = (state) => {
     return {
         movieDetail: state.movies.selectedMovie
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, {
     getMovieDetails: actions.getMovieDetails
-})(MovieDetails)
+})(MovieDetails);
