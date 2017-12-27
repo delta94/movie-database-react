@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import { MovieCast as MovieCastModel } from '../../store/movies/models';
 
 const MovieCast = ({ cast }) =>
     <div>
@@ -15,9 +14,6 @@ const MovieCast = ({ cast }) =>
                         }
                         alt="poster" 
                         className="imgResponsive" />
-
-
-                        
                         <figcaption>{item.name}</figcaption>
                     </figure>)
             }
@@ -25,7 +21,7 @@ const MovieCast = ({ cast }) =>
     </div>;
 
 MovieCast.propTypes = {
-    cast: propTypes.instanceOf(MovieCastModel)
+    cast: propTypes.array
 };
 
 export default MovieCast;

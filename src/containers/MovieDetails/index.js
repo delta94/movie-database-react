@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
+import { Movie as MovieModel } from '../../store/movies/models';
 import MovieCast from '../../components/MovieCast';
 
 import * as actions from '../../store/movies/actions';
@@ -51,7 +52,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-    movieDetail: propTypes.func.isRequired,
+    movieDetail: propTypes.instanceOf(MovieModel),
     getMovieDetails: propTypes.func.isRequired,
     match: propTypes.shape({
         params: propTypes.shape({
