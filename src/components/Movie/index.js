@@ -1,5 +1,8 @@
 import './Movie.css';
 
+import propTypes from 'prop-types';
+import { Movie as MovieModel } from '../../store/movies/models';
+
 const Movie = ({ movie }) => {
 
 
@@ -19,6 +22,10 @@ const Movie = ({ movie }) => {
             </div>
         </a>
     );
+};
+
+Movie.propTypes = {
+    movie: propTypes.instanceOf(MovieModel)
 };
 
 export default Movie;

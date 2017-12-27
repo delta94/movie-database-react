@@ -4,8 +4,6 @@ import rootReducer from './rootReducer';
 
 import rootSaga from './rootSagas';
 
-const LOCAL_STORAGE_KEY = 'redux-store';
-
 // ------------------------------------------------------
 // * Create middlewares for store
 // ------------------------------------------------------
@@ -21,20 +19,11 @@ const logger = store => next => action => {
     return result;
 };
 
-const saver = store => next => action => {
-    let result = next(action);
-    // localStorage[LOCAL_STORAGE_KEY] = JSON.stringify(store.getState())
-    return result;
-};
-
 const saga = createSagaMiddleware();
 
 const storeFactory = (initialState = {}) => { 
-    let store = applyMiddleware(logger, saver, saga)(createStore)(
-        rootReducer,
-        (localStorage[LOCAL_STORAGE_KEY]) ?
-            JSON.parse(localStorage[LOCAL_STORAGE_KEY]) :
-            {}
+    let store = applyMiddleware(logger, saga)(createStore)(
+        rootReducer, initialState
     );
 
     saga.run(rootSaga);

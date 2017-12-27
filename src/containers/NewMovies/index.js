@@ -1,5 +1,9 @@
-import Movie from '../../components/Movie';
 import './NewMovies.css';
+
+import propTypes from 'prop-types';
+
+import Movie from '../../components/Movie';
+
 
 const NewMovies = ({ movies }) => {
 
@@ -17,6 +21,10 @@ const NewMovies = ({ movies }) => {
             </div>
         </div>
     );
+};
+
+NewMovies.propTypes = {
+    movies: propTypes.array
 };
 
 export default NewMovies;

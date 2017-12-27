@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import MovieService from './service';
 import * as MovieActions from './actions';
 
-function* fetchFeaturedMovies(action) {
+function* fetchFeaturedMovies() {
    try {
       const movies = yield call(MovieService.getFeatured);
       yield put(new MovieActions.getFeaturedMoviesSuccess(movies));

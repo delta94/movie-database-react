@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import MovieCast from '../../components/MovieCast';
 
@@ -24,7 +25,7 @@ class MovieDetails extends Component {
             <div>
                 <div className="moviePage">
                     <div className="poster">
-                        <img 
+                        <img
                             src={movieDetail.posterImage}
                             onError={
                                 (e) => e.target.src = movieDetail.placeholderImage
@@ -49,6 +50,15 @@ class MovieDetails extends Component {
     }
 }
 
+MovieDetails.propTypes = {
+    movieDetail: propTypes.func.isRequired,
+    getMovieDetails: propTypes.func.isRequired,
+    match: propTypes.shape({
+        params: propTypes.shape({
+            id: propTypes.string,
+        })
+    })
+};
 
 const mapStateToProps = (state) => {
     return {

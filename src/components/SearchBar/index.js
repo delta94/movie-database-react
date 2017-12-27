@@ -3,6 +3,7 @@ import searchIcon from '../../images/search.svg';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import * as actions from '../../store/movies/actions';
 
@@ -41,6 +42,11 @@ class SearchBar extends Component {
         );
     }
 }
+
+SearchBar.propTypes = {
+    searchMovie: propTypes.func.isRequired,
+    resetMovieSearch:  propTypes.func.isRequired
+};
 
 
 export default connect(null, {

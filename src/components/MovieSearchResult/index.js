@@ -1,3 +1,5 @@
+import propTypes from 'prop-types';
+import { Movie as MovieModel } from '../../store/movies/models';
 
 const MovieSearchResult = ({ movie }) => {
 
@@ -17,6 +19,10 @@ const MovieSearchResult = ({ movie }) => {
         </a>
     );
 
+};
+
+MovieSearchResult.propTypes = {
+    movie: propTypes.instanceOf(MovieModel)
 };
 
 export default MovieSearchResult;

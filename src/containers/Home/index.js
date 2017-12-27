@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import SearchBar from '../../components/SearchBar';
 import NewMovies from '../NewMovies';
@@ -31,6 +32,12 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  getFeaturedMovies: propTypes.func.isRequired,
+  newMovies: propTypes.array,
+  searchResult: propTypes.array
+};
 
 const mapStateToProps = (state) => {
   return {

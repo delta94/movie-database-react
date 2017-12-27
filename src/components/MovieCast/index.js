@@ -1,3 +1,6 @@
+import propTypes from 'prop-types';
+import { MovieCast as MovieCastModel } from '../../store/movies/models';
+
 const MovieCast = ({ cast }) =>
     <div>
         <h3>Cast</h3>
@@ -20,5 +23,9 @@ const MovieCast = ({ cast }) =>
             }
         </div>
     </div>;
+
+MovieCast.propTypes = {
+    cast: propTypes.instanceOf(MovieCastModel)
+};
 
 export default MovieCast;
