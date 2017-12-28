@@ -7,13 +7,13 @@ const MovieCast = ({ cast }) =>
             {
                 cast.map((item, index) =>
                     <figure key={index}>
-                        <img 
-                        src={item.image}
-                        onError={
-                            (e) => e.target.src = item.placeholderImage
-                        }
-                        alt="poster" 
-                        className="imgResponsive" />
+                        <img
+                            src={item.image}
+                            onError={
+                                (e) => e.target.src = item.placeholderImage
+                            }
+                            alt="poster"
+                            className="imgResponsive" />
                         <figcaption>{item.name}</figcaption>
                     </figure>)
             }

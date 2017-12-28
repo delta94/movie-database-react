@@ -1,10 +1,15 @@
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Movie as MovieModel } from '../../store/movies/models';
 
 const MovieSearchResult = ({ movie }) => {
 
+    this.onClick = () => {
+        
+    };
+
     return (
-        <a href={'/movie/' + movie.id}>
+        <Link to={'/movie/' + movie.id} onClick={this.onClick}>
             <img
                 src={movie.posterImage}
                 onError={
@@ -16,7 +21,7 @@ const MovieSearchResult = ({ movie }) => {
                 <p>{movie.title}</p>
                 <p>{movie.releaseDate}</p>
             </div>
-        </a>
+        </Link>
     );
 
 };

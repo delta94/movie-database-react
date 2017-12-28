@@ -1,14 +1,16 @@
 import logo from '../../images/logo.svg';
 import './Header.css';
 
+import { Link } from 'react-router-dom';
+
 const Header = () =>
     <header>
-        <a href="/">
+        <Link to="/" replace>
             <h1>
                 <img src={logo} alt="Movie logo" />
                 <span className="title">Movie</span>
             </h1>
-        </a>
+        </Link>
         <hr />
     </header>;
 
