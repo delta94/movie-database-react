@@ -3,7 +3,8 @@ import { types } from './actions';
 const initialState = {
     featured: [],
     searchResult: [],
-    selectedMovie: null
+    selectedMovie: null,
+    error: null
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -12,7 +13,16 @@ const moviesReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                featured: action.payload
+                featured: action.payload,
+                error: null
+            };
+
+        case types.GET_FEATURED_MOVIES_FAILURE:
+
+            return {
+                ...state,
+                featured: null,
+                error: action.payload
             };
 
         case types.SEARCH_MOVIE_SUCCESS:
@@ -26,14 +36,30 @@ const moviesReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                searchResult: []
+                searchResult: [],
+                error: null
+            };
+
+        case types.GET_MOVIE_DETAILS:
+            return {
+                ...state,
+                selectedMovie: null
             };
 
         case types.GET_MOVIE_DETAILS_SUCCESS:
 
             return {
                 ...state,
-                selectedMovie: action.payload
+                selectedMovie: action.payload,
+                error: null
+            };
+
+        case types.GET_MOVIE_DETAILS_FAILURE:
+
+            return {
+                ...state,
+                selectedMovie: null,
+                error: action.payload
             };
 
         default:

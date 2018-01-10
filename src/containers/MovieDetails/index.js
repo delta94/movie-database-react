@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 
 import { Movie as MovieModel } from '../../store/movies/models';
 import MovieCast from '../../components/MovieCast';
+import Error from '../../components/Error';
 
 import * as actions from '../../store/movies/actions';
 
@@ -11,15 +12,26 @@ class MovieDetails extends Component {
 
     constructor(props) {
         super(props);
+        this.getMovieDetails = this.getMovieDetails.bind(this);
+        this.onRetry = this.onRetry.bind(this);
+        this.getMovieDetails();
+    }
+
+    getMovieDetails() {
         let movieId = this.props.match.params.id;
-        props.getMovieDetails(movieId);
+        this.props.getMovieDetails(movieId);
+    }
+
+    onRetry() {
+        this.getMovieDetails();
     }
 
     render() {
         let { movieDetail } = this.props;
+        const isError = this.props.error;
 
         if (!movieDetail) {
-            return null;
+            return isError ? <Error callback={this.onRetry} /> : null;
         }
 
         return (
@@ -54,6 +66,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
     movieDetail: propTypes.instanceOf(MovieModel),
     getMovieDetails: propTypes.func.isRequired,
+    error: propTypes.object,
     match: propTypes.shape({
         params: propTypes.shape({
             id: propTypes.string,
@@ -63,7 +76,8 @@ MovieDetails.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        movieDetail: state.movies.selectedMovie
+        movieDetail: state.movies.selectedMovie,
+        error: state.movies.error
     };
 };
 
