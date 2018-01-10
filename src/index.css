@@ -213,3 +213,10 @@ html {
     -ms-flex-item-align: center;
         align-self: center;
   }
+
+
+  .errorImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }

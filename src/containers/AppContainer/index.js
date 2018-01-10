@@ -5,6 +5,8 @@ import propTypes from 'prop-types';
 
 import * as actions from '../../store/movies/actions';
 
+import ErrorBoundary from '../ErrorBoundary';
+
 class AppContainer extends Component {
     constructor(props) {
         super(props);
@@ -16,9 +18,11 @@ class AppContainer extends Component {
 
     render() {
         return (
-            <div className="container">
-                {this.props.children}
-            </div>
+            <ErrorBoundary>
+                <div className="container">
+                    {this.props.children}
+                </div>
+            </ErrorBoundary>
         );
     }
 }
